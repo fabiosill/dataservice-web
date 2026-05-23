@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DataService ERP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<div id="app" style="display:flex;height:100vh;flex-direction:column;">
+  <div id="app-shell"></div>
+  <div class="app-body" id="app-body">
+    <div class="app-main">
+
+      <div class="page active" id="page-clientes">
+        <div class="breadcrumb">Cadastros <span class="sep">/</span> <span>Clientes</span></div>
+        <div class="page-header">
+          <div>
+            <div class="page-title">Clientes</div>
+            <div class="page-subtitle">Base de clientes cadastrados</div>
+          </div>
+          <button class="action-btn primary" onclick="openModal('modal-cliente')">+ Novo Cliente</button>
+        </div>
+        <div class="card">
+          <div style="display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap;">
+            <input class="form-input" id="busca-cliente" placeholder="🔍 Buscar clientes..." style="max-width:280px;" oninput="filtrarClientes(this.value)">
+            <select class="form-select" style="max-width:180px;">
+              <option>Todos os status</option><option>Ativo</option><option>Inativo</option>
+            </select>
+          </div>
+          <div class="table-wrap"><table id="clientes-table"></table></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Novo Cliente -->
+<div class="modal-overlay" id="modal-cliente" onclick="closeModalOutside(event,'modal-cliente')">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Novo Cliente</div>
+      <button class="modal-close" onclick="closeModal('modal-cliente')">✕</button>
+    </div>
+    <div class="form-grid" style="gap:14px;">
+      <div class="form-field"><label class="form-label">Nome</label><input class="form-input" placeholder="Nome completo"></div>
+      <div class="form-field"><label class="form-label">CPF</label><input class="form-input" placeholder="000.000.000-00"></div>
+      <div class="form-field"><label class="form-label">Data de Nascimento</label><input class="form-input" type="date"></div>
+      <div class="form-field"><label class="form-label">Preço Unitário</label><input class="form-input" type="number" placeholder="0,00"></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:24px;justify-content:flex-end;">
+      <button class="action-btn secondary" onclick="closeModal('modal-cliente')">Cancelar</button>
+      <button class="action-btn primary" onclick="saveAndClose('modal-cliente')">💾 Salvar</button>
+    </div>
+  </div>
+</div>
+
+<script src="/core/data.js"></script>
+<script src="/core/shell.js"></script>
+<script src="clientes.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DataService ERP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<div id="app" style="display:flex;height:100vh;flex-direction:column;">
+  <div id="app-shell"></div>
+  <div class="app-body" id="app-body">
+    <div class="app-main">
+
+      <div class="page active" id="page-empresa">
+        <div class="breadcrumb">Cadastros <span class="sep">/</span> <span>Empresa</span></div>
+        <div class="page-header">
+          <div>
+            <div class="page-title">Empresa</div>
+            <div class="page-subtitle">Dados cadastrais e configurações</div>
+          </div>
+          <button class="action-btn primary" onclick="openModal('modal-empresa')">✏️ Editar Empresa</button>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <div style="font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:20px;">Dados Principais</div>
+            <div id="empresa-detail"></div>
+          </div>
+          <div class="card">
+            <div style="font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:20px;">Endereço da Empresa</div>
+            <div id="empresa-address"></div>
+          </div>
+        </div>
+        <div class="card" style="margin-top:20px;">
+          <div style="font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:20px;">Outras Empresas do Grupo</div>
+          <div class="table-wrap"><table id="other-companies-table"></table></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Editar Empresa -->
+<div class="modal-overlay" id="modal-empresa" onclick="closeModalOutside(event,'modal-empresa')">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Editar Empresa</div>
+      <button class="modal-close" onclick="closeModal('modal-empresa')">✕</button>
+    </div>
+    <div class="form-grid" style="gap:14px;">
+      <div class="form-field"><label class="form-label">Razão Social</label><input class="form-input" id="m-razao"></div>
+      <div class="form-field"><label class="form-label">CNPJ</label><input class="form-input" id="m-cnpj"></div>
+      <div class="form-field"><label class="form-label">E-mail</label><input class="form-input" id="m-email"></div>
+      <div class="form-field"><label class="form-label">Telefone</label><input class="form-input" placeholder="(11) 0000-0000"></div>
+      <div class="form-field"><label class="form-label">Site</label><input class="form-input" placeholder="www.empresa.com.br"></div>
+      <div class="form-field form-full"><label class="form-label">Sobre a empresa</label><input class="form-input" id="m-sobre"></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:24px;justify-content:flex-end;">
+      <button class="action-btn secondary" onclick="closeModal('modal-empresa')">Cancelar</button>
+      <button class="action-btn primary" onclick="saveAndClose('modal-empresa')">💾 Salvar</button>
+    </div>
+  </div>
+</div>
+
+<script src="/core/data.js"></script>
+<script src="/core/shell.js"></script>
+<script src="empresa.js"></script>
+</body>
+</html>

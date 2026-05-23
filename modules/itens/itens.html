@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DataService ERP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<div id="app" style="display:flex;height:100vh;flex-direction:column;">
+  <div id="app-shell"></div>
+  <div class="app-body" id="app-body">
+    <div class="app-main">
+
+      <div class="page active" id="page-itens">
+        <div class="breadcrumb">Estoque <span class="sep">/</span> <span>Itens</span></div>
+        <div class="page-header">
+          <div>
+            <div class="page-title">Itens</div>
+            <div class="page-subtitle">Catálogo de produtos e materiais</div>
+          </div>
+          <button class="action-btn primary" onclick="openModal('modal-item')">+ Novo Item</button>
+        </div>
+
+        <!-- Filtros de busca -->
+        <div class="card" style="margin-bottom:20px;">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <input class="form-input" id="busca-item" placeholder="🔍 Buscar itens..." style="max-width:280px;" oninput="filtrarItens(this.value)">
+            <select class="form-select" id="filtro-estoque" style="max-width:200px;" onchange="filtrarPorEstoque(this.value)">
+              <option value="">Todos os estoques</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="table-wrap"><table id="itens-table"></table></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Novo Item -->
+<div class="modal-overlay" id="modal-item" onclick="closeModalOutside(event,'modal-item')">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Novo Item</div>
+      <button class="modal-close" onclick="closeModal('modal-item')">✕</button>
+    </div>
+    <div class="form-grid" style="gap:14px;">
+      <div class="form-field"><label class="form-label">Nome do Item</label><input class="form-input" placeholder="Ex: Notebook Dell XPS"></div>
+      <div class="form-field"><label class="form-label">Quantidade</label><input class="form-input" type="number" placeholder="0"></div>
+      <div class="form-field form-full"><label class="form-label">Descrição</label><input class="form-input" placeholder="Especificações do item"></div>
+      <div class="form-field form-full"><label class="form-label">Estoque</label>
+        <select class="form-select" id="item-estoque-sel"></select>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:24px;justify-content:flex-end;">
+      <button class="action-btn secondary" onclick="closeModal('modal-item')">Cancelar</button>
+      <button class="action-btn primary" onclick="saveAndClose('modal-item')">💾 Salvar</button>
+    </div>
+  </div>
+</div>
+
+<script src="/core/data.js"></script>
+<script src="/core/shell.js"></script>
+<script src="itens.js"></script>
+</body>
+</html>

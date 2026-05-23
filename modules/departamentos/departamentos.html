@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DataService ERP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<div id="app" style="display:flex;height:100vh;flex-direction:column;">
+  <div id="app-shell"></div>
+  <div class="app-body" id="app-body">
+    <div class="app-main">
+
+      <div class="page active" id="page-departamentos">
+        <div class="breadcrumb">Cadastros <span class="sep">/</span> <span>Departamentos</span></div>
+        <div class="page-header">
+          <div>
+            <div class="page-title">Departamentos</div>
+            <div class="page-subtitle">Estrutura organizacional</div>
+          </div>
+          <button class="action-btn primary" onclick="openModal('modal-dept')">+ Novo Departamento</button>
+        </div>
+        <div class="card">
+          <div class="table-wrap"><table id="dept-table"></table></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Novo Departamento -->
+<div class="modal-overlay" id="modal-dept" onclick="closeModalOutside(event,'modal-dept')">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Novo Departamento</div>
+      <button class="modal-close" onclick="closeModal('modal-dept')">✕</button>
+    </div>
+    <div class="form-grid" style="gap:14px;">
+      <div class="form-field"><label class="form-label">Nome</label><input class="form-input" placeholder="Ex: Marketing"></div>
+      <div class="form-field"><label class="form-label">Prédio</label><input class="form-input" placeholder="Ex: Bloco A"></div>
+      <div class="form-field"><label class="form-label">Gerente</label>
+        <select class="form-select"><option>Selecione...</option><option>Ana Lima</option><option>Carlos Souza</option></select>
+      </div>
+      <div class="form-field"><label class="form-label">Verba Mensal (R$)</label><input class="form-input" type="number" placeholder="0,00"></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:24px;justify-content:flex-end;">
+      <button class="action-btn secondary" onclick="closeModal('modal-dept')">Cancelar</button>
+      <button class="action-btn primary" onclick="saveAndClose('modal-dept')">💾 Salvar</button>
+    </div>
+  </div>
+</div>
+
+<script src="/core/data.js"></script>
+<script src="/core/shell.js"></script>
+<script src="departamentos.js"></script>
+</body>
+</html>

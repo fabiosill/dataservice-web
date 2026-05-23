@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DataService ERP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<div id="app" style="display:flex;height:100vh;flex-direction:column;">
+  <div id="app-shell"></div>
+  <div class="app-body" id="app-body">
+    <div class="app-main">
+
+      <div class="page active" id="page-movimentacoes">
+        <div class="breadcrumb">Estoque <span class="sep">/</span> <span>Movimentações</span></div>
+        <div class="page-header">
+          <div>
+            <div class="page-title">Movimentações</div>
+            <div class="page-subtitle">Rastreabilidade de estoque</div>
+          </div>
+          <button class="action-btn primary" onclick="openModal('modal-mov')">+ Nova Movimentação</button>
+        </div>
+
+        <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:20px;">
+          <div class="kpi-card blue"><div class="kpi-icon">📥</div><div class="kpi-label">Entradas</div><div class="kpi-value" id="mov-entrada">—</div></div>
+          <div class="kpi-card red"><div class="kpi-icon">📤</div><div class="kpi-label">Saídas</div><div class="kpi-value" id="mov-saida">—</div></div>
+          <div class="kpi-card yellow"><div class="kpi-icon">🔀</div><div class="kpi-label">Transferências</div><div class="kpi-value" id="mov-transf">—</div></div>
+        </div>
+
+        <div class="card">
+          <div class="tabs" id="mov-tabs">
+            <button class="tab-btn active" onclick="filtrarMov('Todas', this)">Todas</button>
+            <button class="tab-btn" onclick="filtrarMov('Entrada', this)">Entrada</button>
+            <button class="tab-btn" onclick="filtrarMov('Saída', this)">Saída</button>
+            <button class="tab-btn" onclick="filtrarMov('Transferência', this)">Transferência</button>
+          </div>
+          <div class="table-wrap"><table id="mov-table"></table></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Nova Movimentação -->
+<div class="modal-overlay" id="modal-mov" onclick="closeModalOutside(event,'modal-mov')">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Nova Movimentação</div>
+      <button class="modal-close" onclick="closeModal('modal-mov')">✕</button>
+    </div>
+    <div class="form-grid" style="gap:14px;">
+      <div class="form-field"><label class="form-label">Tipo</label>
+        <select class="form-select"><option>Entrada</option><option>Saída</option><option>Transferência</option></select>
+      </div>
+      <div class="form-field"><label class="form-label">Item</label>
+        <select class="form-select" id="mov-item-sel"></select>
+      </div>
+      <div class="form-field"><label class="form-label">Quantidade</label><input class="form-input" type="number" placeholder="0"></div>
+      <div class="form-field"><label class="form-label">Status</label>
+        <select class="form-select"><option>Concluído</option><option>Pendente</option></select>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:24px;justify-content:flex-end;">
+      <button class="action-btn secondary" onclick="closeModal('modal-mov')">Cancelar</button>
+      <button class="action-btn primary" onclick="saveAndClose('modal-mov')">💾 Salvar</button>
+    </div>
+  </div>
+</div>
+
+<script src="/core/data.js"></script>
+<script src="/core/shell.js"></script>
+<script src="movimentacoes.js"></script>
+</body>
+</html>

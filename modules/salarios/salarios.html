@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DataService ERP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<div id="app" style="display:flex;height:100vh;flex-direction:column;">
+  <div id="app-shell"></div>
+  <div class="app-body" id="app-body">
+    <div class="app-main">
+
+      <div class="page active" id="page-salarios">
+        <div class="breadcrumb">Recursos Humanos <span class="sep">/</span> <span>Salários</span></div>
+        <div class="page-header">
+          <div>
+            <div class="page-title">Salários</div>
+            <div class="page-subtitle">Folha de pagamento</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <select class="form-select"><option>Abril 2025</option><option>Março 2025</option></select>
+            <button class="action-btn primary">Processar Folha</button>
+          </div>
+        </div>
+
+        <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:20px;">
+          <div class="kpi-card blue"><div class="kpi-label">Total Bruto</div><div class="kpi-value" id="sal-bruto">—</div></div>
+          <div class="kpi-card red"><div class="kpi-label">Total Descontos</div><div class="kpi-value" id="sal-desc">—</div></div>
+          <div class="kpi-card green"><div class="kpi-label">Total Líquido</div><div class="kpi-value" id="sal-liq">—</div></div>
+        </div>
+
+        <div class="card">
+          <div class="table-wrap"><table id="salarios-table"></table></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="/core/data.js"></script>
+<script src="/core/shell.js"></script>
+<script src="salarios.js"></script>
+</body>
+</html>
