@@ -211,10 +211,22 @@ a {
 }
 
 .navbar__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-size: 22px;
   font-weight: 800;
   color: var(--color-primary);
   letter-spacing: -0.5px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.navbar__logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+  object-fit: contain;
   flex-shrink: 0;
 }
 
