@@ -23,8 +23,8 @@
             <div class="page-subtitle" id="dash-company-name">Carregando...</div>
           </div>
           <div style="display:flex;gap:10px;">
-            <button class="action-btn secondary">Exportar</button>
-            <button class="action-btn primary">+ Novo Registro</button>
+            <button class="action-btn secondary" onclick="exportarDashboard()">Exportar</button>
+            <button class="action-btn primary" onclick="openModal('modal-novo-registro')">+ Novo Registro</button>
           </div>
         </div>
 
@@ -151,6 +151,45 @@
   </div>
 </div>
 
+<!-- Modal: Novo Registro -->
+<div class="modal-overlay" id="modal-novo-registro" onclick="closeModalOutside(event,'modal-novo-registro')">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Novo Registro</div>
+      <button class="modal-close" onclick="closeModal('modal-novo-registro')">✕</button>
+    </div>
+    <div class="form-grid" style="gap:14px;">
+      <div class="form-field">
+        <label class="form-label">Tipo de Registro</label>
+        <select class="form-select" id="reg-tipo">
+          <option value="">Selecione...</option>
+          <option value="pedido">Pedido</option>
+          <option value="funcionario">Funcionário</option>
+          <option value="estoque">Item de Estoque</option>
+          <option value="financeiro">Lançamento Financeiro</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Descrição</label>
+        <input class="form-input" id="reg-descricao" placeholder="Descreva o registro...">
+      </div>
+      <div class="form-field">
+        <label class="form-label">Valor (R$)</label>
+        <input class="form-input" id="reg-valor" type="number" placeholder="0,00">
+      </div>
+      <div class="form-field">
+        <label class="form-label">Data</label>
+        <input class="form-input" id="reg-data" type="date">
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:24px;justify-content:flex-end;">
+      <button class="action-btn secondary" onclick="closeModal('modal-novo-registro')">Cancelar</button>
+      <button class="action-btn primary" onclick="saveAndClose('modal-novo-registro')">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="../../core/data.js"></script>
 <script src="../../core/shell.js"></script>
 <script src="dashboard.js"></script>

@@ -7,7 +7,7 @@ renderShell('enderecos');
 
 renderTable(
   'enderecos-table',
-  ['#', 'Rua', 'Número', 'Bairro', 'Cidade', 'UF', 'CEP'],
+  ['Filial', 'Rua', 'Número', 'Bairro', 'Cidade', 'UF', 'CEP'],
   enderecos.map(e => [
     `<span style="font-family:var(--mono);color:var(--gray-400);">${String(e.id).padStart(3, '0')}</span>`,
     e.ds_rua,
