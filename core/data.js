@@ -61,9 +61,10 @@ const pontos = [
   { cd_ponto: 3, nm: "Carla Mendes", ds_observacao: "Saída antecipada", bl_presenca: true, qt_horario_entrada: "08:00", qt_horario_saida: "16:00" },
   { cd_ponto: 4, nm: "Diego Sousa", ds_observacao: "Home office", bl_presenca: true, qt_horario_entrada: "09:30", qt_horario_saida: "18:30" },
   { cd_ponto: 5, nm: "Elisa Ramos", ds_observacao: "-", bl_presenca: true, qt_horario_entrada: "07:50", qt_horario_saida: "17:00" },
-  { cd_ponto: 6, nm: "Felipe Torres", ds_observacao: "Falta justificada", bl_presenca: false, qt_horario_entrada: "-", qt_horario_saida: "-" },
+  { cd_ponto: 6, nm: "Felipe Torres", ds_observacao: "Férias", bl_presenca: false, qt_horario_entrada: "-", qt_horario_saida: "-" },
   { cd_ponto: 7, nm: "Gabriela Nunes", ds_observacao: "-", bl_presenca: true, qt_horario_entrada: "08:30", qt_horario_saida: "18:00" },
-  { cd_ponto: 8, nm: "Henrique Faria", ds_observacao: "Em reunião externa", bl_presenca: true, qt_horario_entrada: "10:00", qt_horario_saida: "19:00" },
+  { cd_ponto: 8, nm: "Isabela Costa", ds_observacao: "Férias", bl_presenca: false, qt_horario_entrada: "-", qt_horario_saida: "-" },
+  { cd_ponto: 9, nm: "João Paulo Ávila", ds_observacao: "Férias", bl_presenca: false, qt_horario_entrada: "-", qt_horario_saida: "-" },
 ];
 
 const financas = [
