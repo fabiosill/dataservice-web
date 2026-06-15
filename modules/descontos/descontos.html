@@ -39,13 +39,32 @@
       <button class="modal-close" onclick="closeModal('modal-desconto')">✕</button>
     </div>
     <div class="form-grid" style="gap:14px;">
-      <div class="form-field"><label class="form-label">Código</label><input class="form-input" placeholder="Ex: INSS"></div>
-      <div class="form-field"><label class="form-label">Nome</label><input class="form-input" placeholder="Ex: Previdência Social"></div>
-      <div class="form-field form-full"><label class="form-label">Valor / Percentual</label><input class="form-input" placeholder="Ex: 11% ou R$ 280"></div>
+      <div class="form-field"><label class="form-label">Código</label><input class="form-input" id="new-codigo" placeholder="Ex: INSS"></div>
+      <div class="form-field"><label class="form-label">Nome</label><input class="form-input" id="new-nome" placeholder="Ex: Previdência Social"></div>
+      <div class="form-field form-full"><label class="form-label">Valor / Percentual</label><input class="form-input" id="new-valor" placeholder="Ex: 11% ou R$ 280"></div>
     </div>
     <div style="display:flex;gap:10px;margin-top:24px;justify-content:flex-end;">
       <button class="action-btn secondary" onclick="closeModal('modal-desconto')">Cancelar</button>
       <button class="action-btn primary" onclick="saveAndClose('modal-desconto')">💾 Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Editar Desconto -->
+<div class="modal-overlay" id="modal-editar-desconto" onclick="closeModalOutside(event,'modal-editar-desconto')">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Editar Desconto</div>
+      <button class="modal-close" onclick="closeModal('modal-editar-desconto')">✕</button>
+    </div>
+    <div class="form-grid" style="gap:14px;">
+      <div class="form-field"><label class="form-label">Código</label><input class="form-input" id="edit-codigo" placeholder="Ex: INSS"></div>
+      <div class="form-field"><label class="form-label">Nome</label><input class="form-input" id="edit-nome" placeholder="Ex: Previdência Social"></div>
+      <div class="form-field form-full"><label class="form-label">Valor / Percentual</label><input class="form-input" id="edit-valor" placeholder="Ex: 11% ou R$ 280"></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:24px;justify-content:flex-end;">
+      <button class="action-btn secondary" onclick="closeModal('modal-editar-desconto')">Cancelar</button>
+      <button class="action-btn primary" id="btn-salvar-edicao">💾 Salvar Alterações</button>
     </div>
   </div>
 </div>

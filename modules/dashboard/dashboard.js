@@ -172,7 +172,7 @@ function exportarDashboard() {
   y += 5;
   const estoque = [
     { nome: 'Notebook Dell XPS',  minimo: '5 un.',  atual: '3 un.',  status: 'Critico'  },
-    { nome: 'Cabo HDMI 2m',       minimo: '20 un.', atual: '32 un.', status: 'Normal'  },
+    { nome: 'Cabo HDMI 2m',       minimo: '20 un.', atual: '12 un.', status: 'Atencao'  },
     { nome: 'Mouse Logitech',     minimo: '10 un.', atual: '4 un.',  status: 'Critico'  },
     { nome: 'Teclado Mecanico',   minimo: '8 un.',  atual: '9 un.',  status: 'Atencao'  },
   ];

@@ -50,7 +50,6 @@ const PAGES = [
     items: [
       { id: 'empresa',       iconKey: 'empresa',       label: 'Empresa',       file: '../empresa/empresa.html' },
       { id: 'departamentos', iconKey: 'departamentos', label: 'Departamentos', file: '../departamentos/departamentos.html' },
-      { id: 'clientes',      iconKey: 'clientes',      label: 'Clientes',      file: '../clientes/clientes.html' },
       { id: 'enderecos',     iconKey: 'enderecos',     label: 'Endereços',     file: '../enderecos/enderecos.html' },
     ],
   },
@@ -74,13 +73,13 @@ const PAGES = [
     group: 'Estoque',
     items: [
       { id: 'estoque',       iconKey: 'estoque',       label: 'Estoque',       file: '../estoque/estoque.html' },
-      { id: 'itens',         iconKey: 'itens',         label: 'Itens',         file: '../itens/itens.html' },
       { id: 'movimentacoes', iconKey: 'movimentacoes', label: 'Movimentações', file: '../movimentacoes/movimentacoes.html' },
     ],
   },
   {
     group: 'Comercial',
     items: [
+      { id: 'clientes',      iconKey: 'clientes',      label: 'Clientes',      file: '../clientes/clientes.html' },
       { id: 'pedidos', iconKey: 'pedidos', label: 'Pedidos', file: '../pedidos/pedidos.html', badge: '8' },
     ],
   },

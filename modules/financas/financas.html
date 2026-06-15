@@ -20,7 +20,7 @@
             <div class="page-title">Finanças</div>
             <div class="page-subtitle">Controle financeiro por departamento</div>
           </div>
-          <button class="action-btn primary">+ Novo Lançamento</button>
+          <button class="action-btn primary" onclick="openModal('modal-lancamento')">+ Novo Lançamento</button>
         </div>
 
         <div class="kpi-grid" style="margin-bottom:20px;">
@@ -35,6 +35,27 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Novo Lançamento -->
+<div class="modal-overlay" id="modal-lancamento" onclick="closeModalOutside(event,'modal-lancamento')">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Novo Lançamento</div>
+      <button class="modal-close" onclick="closeModal('modal-lancamento')">✕</button>
+    </div>
+    <div class="form-grid" style="gap:14px;">
+      <div class="form-field"><label class="form-label">Departamento</label><input class="form-input" id="lanc-dept" placeholder="Ex: TI"></div>
+      <div class="form-field"><label class="form-label">Mês</label><input class="form-input" id="lanc-mes" placeholder="Ex: Maio 2025"></div>
+      <div class="form-field"><label class="form-label">Verba (R$)</label><input class="form-input" id="lanc-verba" type="number" placeholder="0,00"></div>
+      <div class="form-field"><label class="form-label">Rendimento (R$)</label><input class="form-input" id="lanc-rendimento" type="number" placeholder="0,00"></div>
+      <div class="form-field form-full"><label class="form-label">Gastos Totais (R$)</label><input class="form-input" id="lanc-gastos" type="number" placeholder="0,00"></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:24px;justify-content:flex-end;">
+      <button class="action-btn secondary" onclick="closeModal('modal-lancamento')">Cancelar</button>
+      <button class="action-btn primary" id="btn-salvar-lancamento">💾 Salvar Lançamento</button>
     </div>
   </div>
 </div>
